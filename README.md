@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Clima Now - Aplicativo de previsão do tempo</h1>
   <div align="center" style="display:inline_block">
-  <img src="https://img.shields.io/static/v1?label=expo&message=4.13.0&color=teal"/>
+  <img src="https://img.shields.io/static/v1?label=expo&message=~51.0.18&color=teal"/>
   <img src="https://img.shields.io/static/v1?label=platforms&message=android | IOS&color=black"/>
   <img src="https://img.shields.io/static/v1?label=nodejs&message=v20.9.0&color=navy"/>
   <img src="https://img.shields.io/static/v1?label=licence&message=none&color=green"/>
@@ -21,7 +21,7 @@
 
 <h3>Requisitos</h3>
 
-- [x] expo 4.13.0++
+- [x] expo ~51.0.18++
 - [x] nodejs v20.9.0++
 - [x] emulador android - PIXEL_3a_API_24:5554 (preferencialmente)
 - [x] Ter uma conta na API OpenWeather
