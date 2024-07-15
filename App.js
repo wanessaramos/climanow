@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useReducer } from "react";
+import Context from "./src/context";
+import "react-native-gesture-handler";
+import Routes from "./src/routes";
+
+const DATA = [];
+
+const initialState = { DATA };
 
 export default function App() {
+  function reducer(state, action) {
+    if (action.type === "ADD") {
+      const newCity = action.payload;
+      const newId = state.DATA.length;
+
+      if (
+        state.DATA.length === 0 ||
+        (!state.DATA.some((city) => city.name === newCity) && newCity !== "")
+      ) {
+        return {
+          ...state,
+          DATA: [...state.DATA, { id: `${newId}`, name: `${newCity}` }],
+        };
+      }
+
+      return state;
+    } else {
+      const cityId = action.payload;
+      return {
+        ...state,
+        DATA: state.DATA.filter((city) => city.id !== cityId),
+      };
+    }
+  }
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Context.Provider value={{ state, dispatch }}>
+      <Routes />
+    </Context.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

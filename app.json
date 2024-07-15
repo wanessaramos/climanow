@@ -1,5 +1,16 @@
 {
   "expo": {
+    "plugins": [
+      /* ...  (other plugins)*/
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
+    ],
     "name": "ClimaNow",
     "slug": "ClimaNow",
     "version": "1.0.0",
